@@ -26,7 +26,7 @@ Create a new `CustomStrategy` constructor which inherits from `Strategy`:
 
 ```javascript
 var util = require('util')
-  , Strategy = require('passport-strategy');
+  , Strategy = require('@passport-next/passport-strategy');
 
 function CustomStrategy(...) {
   Strategy.call(this);
