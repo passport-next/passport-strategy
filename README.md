@@ -1,11 +1,10 @@
 # passport-strategy
 
-[![Build](https://travis-ci.org/jaredhanson/passport-strategy.png)](https://travis-ci.org/jaredhanson/passport-strategy)
-[![Coverage](https://coveralls.io/repos/jaredhanson/passport-strategy/badge.png)](https://coveralls.io/r/jaredhanson/passport-strategy)
-[![Quality](https://codeclimate.com/github/jaredhanson/passport-strategy.png)](https://codeclimate.com/github/jaredhanson/passport-strategy)
-[![Dependencies](https://david-dm.org/jaredhanson/passport-strategy.png)](https://david-dm.org/jaredhanson/passport-strategy)
-[![Tips](http://img.shields.io/gittip/jaredhanson.png)](https://www.gittip.com/jaredhanson/)
-
+[![Build Status](https://travis-ci.org/passport-next/passport-strategy.svg?branch=master)](https://travis-ci.org/passport-next/passport-strategy)
+[![Coverage Status](https://coveralls.io/repos/github/passport-next/passport-strategy/badge.svg?branch=master)](https://coveralls.io/github/passport-next/passport-strategy?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5c6d93b9711897ef2949/maintainability)](https://codeclimate.com/github/passport-next/passport-strategy/maintainability)
+[![Dependencies](https://david-dm.org/passport-next/passport-strategy.png)](https://david-dm.org/passport-next/passport-strategy)
+<!--[![SAST](https://gitlab.com/passport-next/passport-strategy/badges/master/build.svg)](https://gitlab.com/passport-next/passport-strategy/badges/master/build.svg)-->
 
 An abstract class implementing [Passport](http://passportjs.org/)'s strategy
 API.
@@ -145,16 +144,4 @@ user directory is not available.
 
     $ npm install
     $ npm test
-
-## Credits
-
-  - [Jared Hanson](http://github.com/jaredhanson)
-
-## License
-
-[The MIT License](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2011-2014 Jared Hanson <[http://jaredhanson.net/](http://jaredhanson.net/)>
-
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/vK9dyjRnnWsMzzJTQ57fRJpH/jaredhanson/passport-strategy'>  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/vK9dyjRnnWsMzzJTQ57fRJpH/jaredhanson/passport-strategy.svg' /></a>
 
