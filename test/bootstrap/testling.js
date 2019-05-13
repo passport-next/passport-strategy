@@ -1,3 +1,4 @@
-var chai = require('chai');
+'use strict';
+const { expect } = require('chai');
 
-window.expect = chai.expect;
+window.expect = expect;

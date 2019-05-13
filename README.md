@@ -11,7 +11,9 @@ API.
 
 ## Install
 
-    $ npm install passport-strategy
+```
+npm install passport-strategy
+```
 
 ## Usage
 
@@ -25,14 +27,14 @@ middleware for authentication.
 Create a new `CustomStrategy` constructor which inherits from `Strategy`:
 
 ```javascript
-var util = require('util')
-  , Strategy = require('@passport-next/passport-strategy');
+const Strategy = require('@passport-next/passport-strategy');
 
-function CustomStrategy(...) {
-  Strategy.call(this);
+class CustomStrategy extends Strategy {
+  constructor(/* ... */) {
+    super();
+    doSomething();
+  }
 }
-
-util.inherits(CustomStrategy, Strategy);
 ```
 
 #### Implement Authentication
@@ -41,8 +43,12 @@ Implement `autheticate()`, performing the necessary operations required by the
 authentication scheme or protocol being implemented.
 
 ```javascript
-CustomStrategy.prototype.authenticate = function(req, options) {
-  // TODO: authenticate request
+class CustomStrategy {
+  // ...
+  authenticate(req, options) {
+    // TODO: authenticate request
+    this._authenticateRequest(req, options);
+  }
 }
 ```
 
@@ -75,8 +81,8 @@ details.
 
 | Param | Type |
 | --- | --- |
-| user | Object | 
-| info | Object | 
+| user | Object |
+| info | Object |
 
 
 ##### strategy.fail(challenge, status)
@@ -90,8 +96,8 @@ Strategies should call this function to fail an authentication attempt.
 
 | Param | Type |
 | --- | --- |
-| challenge | String | 
-| status | Number | 
+| challenge | String |
+| status | Number |
 
 
 
@@ -106,8 +112,8 @@ user agent) to a third-party website for authentication.
 
 | Param | Type |
 | --- | --- |
-| url | String | 
-| status | Number | 
+| url | String |
+| status | Number |
 
 
 ##### strategy.pass()
@@ -132,7 +138,7 @@ user directory is not available.
 
 | Param | Type |
 | --- | --- |
-| err | Error | 
+| err | Error |
 
 
 
@@ -144,4 +150,3 @@ user directory is not available.
 
     $ npm install
     $ npm test
-
