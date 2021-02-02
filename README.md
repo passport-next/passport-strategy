@@ -11,7 +11,7 @@ API.
 
 ## Install
 
-```
+```shell
 npm install passport-strategy
 ```
 
@@ -82,7 +82,6 @@ third-party identity provider, etc.
 * [.pass()](#Strategy+pass)
 * [.error(err)](#Strategy+error)
 
-
 ##### `strategy.success(user, info)`
 
 Authenticate `user`, with optional `info`.
@@ -102,39 +101,38 @@ details.
 | user | Object |
 | info | Object |
 
-
 ##### strategy.fail(challenge, status)
+
 Fail authentication, with optional `challenge` and `status`, defaulting
 to 401.
 
 Strategies should call this function to fail an authentication attempt.
 
 **Kind**: instance method of [Strategy](#Strategy)
-**Api**: public
+**API**: public
 
 | Param | Type |
 | --- | --- |
 | challenge | String |
 | status | Number |
 
-
-
 ##### strategy.redirect(url, status)
+
 Redirect to `url` with optional `status`, defaulting to 302.
 
 Strategies should call this function to redirect the user (via their
 user agent) to a third-party website for authentication.
 
 **Kind**: instance method of [Strategy](#Strategy)
-**Api**: public
+**API**: public
 
 | Param | Type |
 | --- | --- |
 | url | String |
 | status | Number |
 
-
 ##### strategy.pass()
+
 Pass without making a success or fail decision.
 
 Under most circumstances, Strategies should not need to call this
@@ -142,9 +140,10 @@ function.  It exists primarily to allow previous authentication state
 to be restored, for example from an HTTP session.
 
 **Kind**: instance method of [Strategy](#Strategy)
-**Api**: public
+**API**: public
 
 ##### strategy.error(err)
+
 Internal error while performing authentication.
 
 Strategies should call this function when an internal error occurs
@@ -152,13 +151,11 @@ during the process of performing authentication; for example, if the
 user directory is not available.
 
 **Kind**: instance method of [Strategy](#Strategy)
-**Api**: public
+**API**: public
 
 | Param | Type |
 | --- | --- |
 | err | Error |
-
-
 
 ## Related Modules
 
