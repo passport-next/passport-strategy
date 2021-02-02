@@ -29,7 +29,13 @@ Create a new `CustomStrategy` constructor which inherits from `Strategy`:
 ```javascript
 const Strategy = require('@passport-next/passport-strategy');
 
+/**
+ *
+ */
 class CustomStrategy extends Strategy {
+  /**
+   *
+   */
   constructor(/* ... */) {
     super();
     doSomething();
@@ -43,8 +49,15 @@ Implement `autheticate()`, performing the necessary operations required by the
 authentication scheme or protocol being implemented.
 
 ```javascript
+/**
+ *
+ */
 class CustomStrategy {
   // ...
+  /**
+   * @param req
+   * @param options
+   */
   authenticate(req, options) {
     // TODO: authenticate request
     this._authenticateRequest(req, options);
