@@ -1,15 +1,12 @@
-/* global describe, it, expect */
+'use strict';
+const Strategy = require('../lib/strategy.js');
 
-var Strategy = require('../lib/strategy');
+describe('Strategy', function () {
+  const strategy = new Strategy();
 
-describe('Strategy', function() {
-    
-  var strategy = new Strategy();
-    
-  it('authenticate should throw error', function() {
-    expect(function() {
+  it('authenticate should throw error', function () {
+    expect(function () {
       strategy.authenticate();
     }).to.throw(Error, 'Strategy#authenticate must be overridden by subclass');
   });
-  
 });

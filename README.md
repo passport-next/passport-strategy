@@ -11,7 +11,9 @@ API.
 
 ## Install
 
-    $ npm install passport-strategy
+```shell
+npm install passport-strategy
+```
 
 ## Usage
 
@@ -25,14 +27,20 @@ middleware for authentication.
 Create a new `CustomStrategy` constructor which inherits from `Strategy`:
 
 ```javascript
-var util = require('util')
-  , Strategy = require('@passport-next/passport-strategy');
+const Strategy = require('@passport-next/passport-strategy');
 
-function CustomStrategy(...) {
-  Strategy.call(this);
+/**
+ *
+ */
+class CustomStrategy extends Strategy {
+  /**
+   *
+   */
+  constructor(/* ... */) {
+    super();
+    doSomething();
+  }
 }
-
-util.inherits(CustomStrategy, Strategy);
 ```
 
 #### Implement Authentication
@@ -41,14 +49,29 @@ Implement `autheticate()`, performing the necessary operations required by the
 authentication scheme or protocol being implemented.
 
 ```javascript
-CustomStrategy.prototype.authenticate = function(req, options) {
-  // TODO: authenticate request
+/**
+ *
+ */
+class CustomStrategy {
+  // ...
+  /**
+   * @param req
+   * @param options
+   */
+  authenticate(req, options) {
+    // TODO: authenticate request
+    this._authenticateRequest(req, options);
+  }
 }
 ```
 
 #### Augmented Methods
-The Strategy.authenticate method is called on an instance of this Strategy that's augmented with the following action functions.  
-These action functions are bound via closure the the request/response pair.  
+
+The `Strategy.authenticate` method is called on an instance of this Strategy
+which is augmented with the following action functions.
+
+These action functions are bound via closure the the request/response pair.
+
 The end goal of the strategy is to invoke *one* of these action methods, in
 order to indicate successful or failed authentication, redirect to a
 third-party identity provider, etc.
@@ -59,82 +82,80 @@ third-party identity provider, etc.
 * [.pass()](#Strategy+pass)
 * [.error(err)](#Strategy+error)
 
+##### `strategy.success(user, info)`
 
-##### strategy.success(user, info)
 Authenticate `user`, with optional `info`.
 
-Strategies should call this function to successfully authenticate a
+Strategies should call this method to successfully authenticate a
 user.  `user` should be an object supplied by the application after it
 has been given an opportunity to verify credentials.  `info` is an
 optional argument containing additional user information.  This is
 useful for third-party authentication strategies to pass profile
 details.
 
-**Kind**: instance method of [Strategy](#Strategy)  
-**Api**: public  
+**Kind**: instance method of [Strategy](#Strategy)
+**API**: public
 
 | Param | Type |
 | --- | --- |
-| user | Object | 
-| info | Object | 
-
+| user | Object |
+| info | Object |
 
 ##### strategy.fail(challenge, status)
+
 Fail authentication, with optional `challenge` and `status`, defaulting
 to 401.
 
 Strategies should call this function to fail an authentication attempt.
 
-**Kind**: instance method of [Strategy](#Strategy)  
-**Api**: public  
+**Kind**: instance method of [Strategy](#Strategy)
+**API**: public
 
 | Param | Type |
 | --- | --- |
-| challenge | String | 
-| status | Number | 
-
-
+| challenge | String |
+| status | Number |
 
 ##### strategy.redirect(url, status)
+
 Redirect to `url` with optional `status`, defaulting to 302.
 
 Strategies should call this function to redirect the user (via their
 user agent) to a third-party website for authentication.
 
-**Kind**: instance method of [Strategy](#Strategy)  
-**Api**: public  
+**Kind**: instance method of [Strategy](#Strategy)
+**API**: public
 
 | Param | Type |
 | --- | --- |
-| url | String | 
-| status | Number | 
-
+| url | String |
+| status | Number |
 
 ##### strategy.pass()
+
 Pass without making a success or fail decision.
 
 Under most circumstances, Strategies should not need to call this
 function.  It exists primarily to allow previous authentication state
 to be restored, for example from an HTTP session.
 
-**Kind**: instance method of [Strategy](#Strategy)  
-**Api**: public  
+**Kind**: instance method of [Strategy](#Strategy)
+**API**: public
 
 ##### strategy.error(err)
+
 Internal error while performing authentication.
 
 Strategies should call this function when an internal error occurs
 during the process of performing authentication; for example, if the
 user directory is not available.
 
-**Kind**: instance method of [Strategy](#Strategy)  
-**Api**: public  
+**Kind**: instance method of [Strategy](#Strategy)
+**API**: public
 
 | Param | Type |
 | --- | --- |
-| err | Error | 
-
-
+| err | Error |
 
 ## Related Modules
 
@@ -144,4 +165,3 @@ user directory is not available.
 
     $ npm install
     $ npm test
-
