@@ -1,12 +1,12 @@
-'use strict';
-const Strategy = require('../lib/strategy.js');
+import { expect } from 'chai';
+import Strategy from '../lib/index.js';
 
 describe('Strategy', function () {
   const strategy = new Strategy();
 
   it('authenticate should throw error', function () {
     expect(function () {
-      strategy.authenticate();
+      strategy.authenticate({}, {});
     }).to.throw(Error, 'Strategy#authenticate must be overridden by subclass');
   });
 });
