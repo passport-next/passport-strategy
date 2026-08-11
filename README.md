@@ -1,4 +1,4 @@
-# passport-strategy
+# @passport-next/passport-strategy
 
 [![Build Status](https://travis-ci.org/passport-next/passport-strategy.svg?branch=master)](https://travis-ci.org/passport-next/passport-strategy)
 [![Coverage Status](https://coveralls.io/repos/github/passport-next/passport-strategy/badge.svg?branch=master)](https://coveralls.io/github/passport-next/passport-strategy?branch=master)
@@ -12,7 +12,7 @@ API.
 ## Install
 
 ```shell
-npm install passport-strategy
+npm install @passport-next/passport-strategy
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ middleware for authentication.
 Create a new `CustomStrategy` constructor which inherits from `Strategy`:
 
 ```javascript
-const Strategy = require('@passport-next/passport-strategy');
+import Strategy from '@passport-next/passport-strategy';
 
 /**
  *
@@ -49,18 +49,29 @@ Implement `autheticate()`, performing the necessary operations required by the
 authentication scheme or protocol being implemented.
 
 ```javascript
+import Strategy from '@passport-next/passport-strategy';
+
 /**
  *
  */
-class CustomStrategy {
+class CustomStrategy extends Strategy {
+  /**
+   *
+   * @param {object} req
+   * @param {object} options
+   */
+  #authenticateRequest(req, options) {
+    // TODO: authenticate request
+    doSomething(req, options);
+  }
+
   // ...
   /**
    * @param req
    * @param options
    */
   authenticate(req, options) {
-    // TODO: authenticate request
-    this._authenticateRequest(req, options);
+    this.#authenticateRequest(req, options);
   }
 }
 ```
