@@ -19,7 +19,5 @@ npm-debug.log
 .git*
 
 # Utilities
-.travis.yml
-.gitlab-ci.yml
 
 eslint.config.js
