@@ -27,7 +27,7 @@ middleware for authentication.
 Create a new `CustomStrategy` constructor which inherits from `Strategy`:
 
 ```javascript
-import Strategy from '@passport-next/passport-strategy';
+import { Strategy } from '@passport-next/passport-strategy';
 
 /**
  *
@@ -49,7 +49,7 @@ Implement `authenticate()`, performing the necessary operations required by the
 authentication scheme or protocol being implemented.
 
 ```javascript
-import Strategy from '@passport-next/passport-strategy';
+import { Strategy } from '@passport-next/passport-strategy';
 
 /**
  *
@@ -98,7 +98,7 @@ Passport will identify mounted strategies by the instance's `name` attribute,
 so be sure to set one in the constructor:
 
 ```javascript
-import Strategy from '@passport-next/passport-strategy';
+import { Strategy } from '@passport-next/passport-strategy';
 
 class CustomStrategy extends Strategy {
   constructor() {
