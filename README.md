@@ -165,7 +165,7 @@ Strategies should call this function to fail an authentication attempt.
 
 | Param | Type |
 | --- | --- |
-| challenge | string |
+| challenge | string\|{type?: string, message: string} |
 | status | number |
 
 #### strategy.redirect(url, status)
