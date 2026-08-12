@@ -22,7 +22,7 @@ subclassed when implementing concrete authentication strategies.  Once
 implemented, such strategies can be used by applications that utilize Passport
 middleware for authentication.
 
-#### Subclass Strategy
+### Subclass Strategy
 
 Create a new `CustomStrategy` constructor which inherits from `Strategy`:
 
