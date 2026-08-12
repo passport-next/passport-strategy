@@ -78,10 +78,11 @@ export default [
       'node/no-missing-require': 'off',
       'func-names': 'off',
       'import/newline-after-import': 'off',
-      'no-unused-vars': ['error', { varsIgnorePattern: 'CustomStrategy' }],
+      'no-unused-vars': ['error', { varsIgnorePattern: 'CustomStrategy|authMiddleware' }],
       strict: 'off',
       // Disable until eslint-plugin-jsdoc may fix: https://github.com/gajus/eslint-plugin-jsdoc/issues/211
       indent: 'off',
+      'jsdoc/require-jsdoc': 'off',
       'jsdoc/require-returns': 'off',
       'jsdoc/require-param-type': 'off'
     }

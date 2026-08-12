@@ -43,9 +43,9 @@ class CustomStrategy extends Strategy {
 }
 ```
 
-#### Implement Authentication
+### Implement Authentication
 
-Implement `autheticate()`, performing the necessary operations required by the
+Implement `authenticate()`, performing the necessary operations required by the
 authentication scheme or protocol being implemented.
 
 ```javascript
@@ -61,8 +61,13 @@ class CustomStrategy extends Strategy {
    * @param {object} options
    */
   #authenticateRequest(req, options) {
-    // TODO: authenticate request
-    doSomething(req, options);
+    try {
+      // TODO: authenticate request
+      return findUser(req, options); // Returns user object or false if not found
+    } catch {
+      this.error(new Error('Database error during authentication'));
+      return false;
+    }
   }
 
   // ...
@@ -71,12 +76,48 @@ class CustomStrategy extends Strategy {
    * @param options
    */
   authenticate(req, options) {
-    this.#authenticateRequest(req, options);
+    const user = this.#authenticateRequest(req, options);
+    if (user) {
+      this.success({
+        username: ''
+      });
+    } else {
+      this.fail();
+    }
   }
 }
 ```
 
-#### Augmented Methods
+See "API" below for additional expected properties and methods.
+
+## API
+
+### Instance properties
+
+Passport will identify mounted strategies by the instance's `name` attribute,
+so be sure to set one in the constructor:
+
+```javascript
+import Strategy from '@passport-next/passport-strategy';
+
+class CustomStrategy extends Strategy {
+  constructor() {
+    super();
+    this.name = 'custom'; // set instance name
+  }
+}
+```
+
+Later, when a user calls `passport.authenticate` to acquire
+the authentication middleware that employs this strategy, the value
+of this `name` attribute is what must be passed in as the first argument
+(as a string or an array of strings):
+
+```javascript
+const authMiddleware = passport.authenticate('custom');
+```
+
+### Augmented Methods
 
 The `Strategy.authenticate` method is called on an instance of this Strategy
 which is augmented with the following action functions.
@@ -93,14 +134,14 @@ third-party identity provider, etc.
 * [.pass()](#Strategy+pass)
 * [.error(err)](#Strategy+error)
 
-##### `strategy.success(user, info)`
+#### `strategy.success(user, info)`
 
 Authenticate `user`, with optional `info`.
 
 Strategies should call this method to successfully authenticate a
-user.  `user` should be an object supplied by the application after it
+user. `user` should be an object supplied by the application after it
 has been given an opportunity to verify credentials.  `info` is an
-optional argument containing additional user information.  This is
+optional argument containing additional user information. This is
 useful for third-party authentication strategies to pass profile
 details.
 
@@ -109,10 +150,10 @@ details.
 
 | Param | Type |
 | --- | --- |
-| user | Object |
-| info | Object |
+| user | object |
+| info | object |
 
-##### strategy.fail(challenge, status)
+#### strategy.fail(challenge, status)
 
 Fail authentication, with optional `challenge` and `status`, defaulting
 to 401.
@@ -124,10 +165,10 @@ Strategies should call this function to fail an authentication attempt.
 
 | Param | Type |
 | --- | --- |
-| challenge | String |
-| status | Number |
+| challenge | string |
+| status | number |
 
-##### strategy.redirect(url, status)
+#### strategy.redirect(url, status)
 
 Redirect to `url` with optional `status`, defaulting to 302.
 
@@ -139,10 +180,10 @@ user agent) to a third-party website for authentication.
 
 | Param | Type |
 | --- | --- |
-| url | String |
-| status | Number |
+| url | string |
+| status | number |
 
-##### strategy.pass()
+#### strategy.pass()
 
 Pass without making a success or fail decision.
 
@@ -153,7 +194,7 @@ to be restored, for example from an HTTP session.
 **Kind**: instance method of [Strategy](#Strategy)
 **API**: public
 
-##### strategy.error(err)
+#### strategy.error(err)
 
 Internal error while performing authentication.
 
