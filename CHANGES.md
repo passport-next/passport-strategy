@@ -1,5 +1,9 @@
 # CHANGES for @passport-next/passport-strategy
 
+## ?
+
+- chore: update passport-types (with updated peer dep.)
+
 ## 2.2.0
 
 - chore: use `passport-types`

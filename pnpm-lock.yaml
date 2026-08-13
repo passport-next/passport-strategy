@@ -12,8 +12,8 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0
       '@passport-next/passport-types':
-        specifier: ^0.3.0
-        version: 0.3.0(@passport-next/http-types@0.2.0)
+        specifier: ^0.3.1
+        version: 0.3.1(@passport-next/http-types@0.2.0)
     devDependencies:
       '@arethetypeswrong/cli':
         specifier: ^0.18.5
@@ -296,10 +296,10 @@ packages:
   '@passport-next/http-types@0.2.0':
     resolution: {integrity: sha512-zmCE7zOIdoa3USI/Qid3w0tvqA3t4AiOw2s79BPWpgKYWSymGH3VwzIr7MvCznmSIuVzAXZclRR3A8bPY17fYQ==}
 
-  '@passport-next/passport-types@0.3.0':
-    resolution: {integrity: sha512-XxAUhl6iiYdnll3ZXvjIkNRFjm336os9iYHKzn8dVA/9Sk1/hjWje5j5t8iadTfqcXZatpSuF5a9tnLRsNreNQ==}
+  '@passport-next/passport-types@0.3.1':
+    resolution: {integrity: sha512-RF5gDyt0tKs4uR4DnhnjSGLvVlIT00HxCe3taP+gZUV4Eagk/JYxWe2FDJga3j05yMdZZnGuJtvPNyT5py6mTA==}
     peerDependencies:
-      '@passport-next/http-types': ^0.1.0
+      '@passport-next/http-types': ^0.2.0
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -2530,7 +2530,7 @@ snapshots:
 
   '@passport-next/http-types@0.2.0': {}
 
-  '@passport-next/passport-types@0.3.0(@passport-next/http-types@0.2.0)':
+  '@passport-next/passport-types@0.3.1(@passport-next/http-types@0.2.0)':
     dependencies:
       '@passport-next/http-types': 0.2.0
 
