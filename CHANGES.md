@@ -1,5 +1,9 @@
 # CHANGES for @passport-next/passport-strategy
 
+## 2.2.0
+
+- chore: use `passport-types`
+
 ## 2.1.0
 
 - feat(types): add `StrategyLike` type export
