@@ -1,7 +1,9 @@
 # CHANGES for @passport-next/passport-strategy
 
-## ?
+## 2.3.0
 
+- feat: allow `fail` to accept no arguments, number as first argument without second argument, or string|AuthInfo as first argument with optional number status as second
+- feat: make second `status` argument optional in `redirect`
 - chore: update passport-types (with updated peer dep.)
 
 ## 2.2.0
