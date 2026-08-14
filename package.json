@@ -1,6 +1,6 @@
 {
   "name": "@passport-next/passport-strategy",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "type": "module",
   "exports": {
     "types": "./dist/index.d.ts",
